@@ -1,11 +1,11 @@
-#2. Hozz létre egy generális fgv-t, amely listát vár bemenetként, 
-#amely listának minden eleme egy data.frame. A fgv  próbálja meg ezeket 
-#összefûzni automatikusan. Ha sikerül összeilleszteni -akár csak néhányat közölük,
-#akkor ezt végezze el, és egy attributumban adja hozzá az eredmény data.frame-hez,
-#hogy mely listaelemeket hogyan fûzött összefûzi. 
-#Majd az eredmény legyen ez a data.frame.
+#2. Hozz lÃ©tre egy generÃ¡lis fgv-t, amely listÃ¡t vÃ¡r bemenetkÃ©nt, 
+#amely listÃ¡nak minden eleme egy data.frame. A fgv  prÃ³bÃ¡lja meg ezeket 
+#Ã¶sszefÅ±zni automatikusan. Ha sikerÃ¼l Ã¶sszeilleszteni -akÃ¡r csak nÃ©hÃ¡nyat kÃ¶zÃ¶lÃ¼k,
+#akkor ezt vÃ©gezze el, Ã©s egy attributumban adja hozzÃ¡ az eredmÃ©ny data.frame-hez,
+#hogy mely listaelemeket hogyan fÅ±zÃ¶tt Ã¶sszefÅ±zi. 
+#Majd az eredmÃ©ny legyen ez a data.frame.
 
-lista1 = list(ess1,ess2,ess3,ess4)
+#ezt a Reduce-t a Stackoverflow-n talÃ¡ltam
 
 fgv = function(a){
   if(is.list(a)){
@@ -15,30 +15,18 @@ fgv = function(a){
   
   for (i in length(a1)){
     if (!is.data.frame(a1[[i]])){
-      stop("egy vagy több lista elem nem data frame!")
+      stop("egy vagy tÃ¶bb lista elem nem data frame!")
     }
     else next
   }
   
   egyben<<-Reduce(function(df1,df2) merge(df1,df2,all=TRUE,no.dups=TRUE),a1)
   
-       tagok <- c("A bemeneti lista ezen tagjai lettek összemergelve:",1:length(a1))
+       tagok <- c("A bemeneti lista ezen tagjai lettek Ã¶sszemergelve:",1:length(a1))
         attr(egyben,"tagok") <<- tagok
 }    
   
 
-fgv(lista1)
+fgv()
 attr(egyben,"tagok")
 
-tagok
-
-for (j in a1[[length((a1))]]){     
-x <- data.frame(i = c("a","b","c"), j = 1:3, stringsAsFactors=FALSE)
-y <- data.frame(i = c("b","c","d"), k = 4:6, stringsAsFactors=FALSE)
-z <- data.frame(i = c("c","d","a"), l = 7:9, stringsAsFactors=FALSE)   
-teszt = list(x,y,z)
-
-
-rm(tagok)
-trick= list(ess1,v)    
-v =3 
