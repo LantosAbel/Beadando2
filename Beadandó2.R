@@ -22,7 +22,8 @@ fgv = function(a){
   
   egyben<<-Reduce(function(df1,df2) merge(df1,df2,all=TRUE,no.dups=TRUE),a1)
   
-       tagok <- c("A bemeneti lista ezen tagjai lettek összemergelve:",1:length(a1))
+       tagok <- c("A bemeneti lista ezen tagjai lettek összemergelve, minden sor minden oszloppal, 
+                      adatvesztés nélkül, de sor és oszlopdúsítással:",1:length(a1))
         attr(egyben,"tagok") <<- tagok
 }    
   
